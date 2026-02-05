@@ -26,11 +26,11 @@ if file:
     clauses = extract_clauses(text)
 
     for clause in clauses:
-    clause["intent"] = detect_intent(clause["text"])
+        clause["intent"] = detect_intent(clause["text"])
 
-    risk_result = assess_clause_risk(clause["text"])
-    clause["risk"] = risk_result["level"]
-    clause["score"] = risk_result["score"]
+        risk_result = assess_clause_risk(clause["text"])
+        clause["risk"] = risk_result["level"]
+        clause["score"] = risk_result["score"]
 
     risk_score = overall_risk(clauses)
     st.metric("Overall Risk Score", risk_score)
