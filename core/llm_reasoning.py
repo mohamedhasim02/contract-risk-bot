@@ -1,14 +1,23 @@
-
-import openai
+from openai import OpenAI
 import os
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def explain_clause(clause):
-    prompt=f"Explain this clause simply and suggest safer wording:\n{clause}"
-    r=openai.ChatCompletion.create(
-        model="gpt-4",
-        messages=[{"role":"user","content":prompt}],
+    prompt = f"""
+Explain the following contract clause in simple business English.
+Identify risks and suggest a safer alternative.
+
+Clause:
+{clause}
+"""
+
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "user", "content": prompt}
+        ],
         temperature=0.3
     )
-    return r.choices[0].message.content
+
+    return response.choices[0].message.content
