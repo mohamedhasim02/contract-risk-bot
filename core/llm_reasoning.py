@@ -1,23 +1,23 @@
 from openai import OpenAI
 import os
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+def explain_clause(text):
+    api_key = os.getenv("OPENAI_API_KEY")
 
-def explain_clause(clause):
-    prompt = f"""
-Explain the following contract clause in simple business English.
-Identify risks and suggest a safer alternative.
+    if not api_key:
+        return "⚠️ OpenAI API key not configured. Please set OPENAI_API_KEY in Streamlit Secrets."
+
+    client = OpenAI(api_key=api_key)
+
+    response = client.responses.create(
+        model="gpt-4.1-mini",
+        input=f"""
+You are a legal assistant.
+Explain the risk in this clause in simple terms and suggest an improvement.
 
 Clause:
-{clause}
+{text}
 """
-
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-            {"role": "user", "content": prompt}
-        ],
-        temperature=0.3
     )
 
-    return response.choices[0].message.content
+    return response.output_text
