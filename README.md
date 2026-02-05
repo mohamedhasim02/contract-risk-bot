@@ -1,6 +1,8 @@
 
 # Contract Analysis & Risk Assessment Bot
 
+## GUVI HACKATHON ASSESEMENT ROUND 2
+
 GenAI-powered contract understanding tool for SMEs and freshers.
 
 ## Features
