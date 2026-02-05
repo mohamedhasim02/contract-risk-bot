@@ -13,3 +13,6 @@ GenAI-powered contract understanding tool for SMEs and freshers.
 ## Run
 pip install -r requirements.txt
 streamlit run app.py
+
+## Check the project here
+https://contract-risk-bot-zzhhevpecvycrchazw43zu.streamlit.app/ 
