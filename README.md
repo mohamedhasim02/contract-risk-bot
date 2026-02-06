@@ -18,3 +18,5 @@ streamlit run app.py
 
 ## Check the project here
 https://contract-risk-bot-zzhhevpecvycrchazw43zu.streamlit.app/ 
+<img width="1920" height="1080" alt="Screenshot (42)" src="https://github.com/user-attachments/assets/c4b09164-4314-4ceb-81ae-3519db57b04f" />
+
